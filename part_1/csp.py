@@ -16,12 +16,12 @@ def get_peers(r, c):
     return peers
 
 
-# computed only once
+# computed only once !
 PEERS = {(r, c): get_peers(r, c) for r in range(9) for c in range(9)}
 
 
 def is_valid_start(grid):
-    """False if two given digits already break a constraint (e.g. two 5s in a row)."""
+    """False if two given digits already break a constraint."""
     for (r, c), peers in PEERS.items():
         v = grid[r][c]
         if v != 0:

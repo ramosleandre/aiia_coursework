@@ -56,7 +56,7 @@ if __name__ == "__main__":
         for arg in sys.argv[1:]:
             if "=" in arg:  # e.g. select=first, changes SETTINGS
                 key, value = arg.split("=")
-                if key not in SETTINGS:
+                if key not in SETTINGS  :
                     sys.exit(f"Unknown setting '{key}' (use select, order or inference)")
                 SETTINGS[key] = value
             else:

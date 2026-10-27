@@ -11,7 +11,7 @@ from sudoku_parser import load_grid
 from algo import solve
 from heuristics import SETTINGS, method_name
 
-RUNS = 3  # steps never change, the time does a bit -> we keep the average
+RUNS = 3
 
 METHODS = [
     {"select": "first", "order": "default", "inference": "none"},        # BT
