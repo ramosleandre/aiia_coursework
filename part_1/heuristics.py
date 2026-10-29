@@ -14,7 +14,7 @@ SETTINGS = {
 # which variable next?
 
 def first_empty(domains):
-    return min(domains)  # (0,0), (0,1), ... reading order
+    return min(domains)
 
 
 def mrv(domains):

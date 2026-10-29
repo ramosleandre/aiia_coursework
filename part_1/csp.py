@@ -37,7 +37,7 @@ def get_variables(grid):
     return [(r, c) for r in range(9) for c in range(9) if grid[r][c] == 0]
 
 
-# Domains: for each variable, the digits not used by its peers
+# Domains: for each variable, the values not used by its peers
 
 def init_domains(grid):
     domains = {}
