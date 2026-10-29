@@ -64,4 +64,4 @@ python game.py puzzles/* order=lcv                     # BT+FC+MRV+LCV
 | `05_inkala_2012.txt` | 21 | A. Inkala's "world's hardest Sudoku" (2012), from sudokuwiki.org |
 | `06_anti_backtracking.txt` | 17 | puzzle "designed to work against the brute force algorithm", Wikipedia "Sudoku solving algorithms" |
 | `07_no_solution.txt` | 9 | made by us: cell (1,9) has no possible value |
-| `08_invalid_givens.txt` | 30 | made by us: puzzle 01 with two 5s in the first row |
+| `08_invalid_givens.txt` | 31 | made by us: puzzle 01 with two 5s in the first row |
