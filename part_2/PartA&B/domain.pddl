@@ -1,6 +1,6 @@
 (define (domain lunar)
     (:requirements :strips :typing)
-
+    ; Domain definition for the lunar mission
     (:types
         lander
         rover
@@ -44,7 +44,7 @@
     ; -------------------------------
     ; Actions
     ; -------------------------------
-
+    ;move description: move a rover from one waypoint to another
     (:action move
         :parameters (?r - rover ?from - waypoint ?to - waypoint)
         :precondition (and
@@ -57,6 +57,7 @@
                 (rover_at ?r ?to)
         )
     )
+    ;deploy description: deploy a rover from a lander to a waypoint
     (:action deploy
         :parameters (?r - rover ?l - lander ?w - waypoint)
         :precondition (and 
@@ -70,6 +71,7 @@
             (rover_at ?r ?w)
         )
     )
+    ;capture_image description: capture an image with a rover
     (:action capture_image
         :parameters (?r - rover ?i - image ?w - waypoint)
         :precondition (and
@@ -83,6 +85,7 @@
             (carrying_data ?r ?i)
         )
     )
+    ;perform_scan description: perform a scan with a rover
     (:action perform_scan
         :parameters (?r - rover ?s - scan ?w - waypoint)
         :precondition (and 
@@ -96,6 +99,7 @@
             (carrying_data ?r ?s)
         )
     )
+    ;transmit_data description: transmit data from a rover to a lander
     (:action transmit_data
         :parameters (?r - rover ?l - lander ?d - data)
         :precondition (and
@@ -109,6 +113,7 @@
             (memory_free ?r)
         )
     )
+    ;collect_sample description: collect a sample with a rover
     (:action collect_sample
         :parameters (?r - rover ?s - sample ?w - waypoint)
         :precondition (and
@@ -123,6 +128,7 @@
             (carrying_sample ?r ?s)
         )
     )
+    ;store_sample description: store a sample in a lander
     (:action store_sample
         :parameters (?r - rover ?s - sample ?l - lander ?w - waypoint)
         :precondition (and

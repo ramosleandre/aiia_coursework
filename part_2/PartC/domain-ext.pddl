@@ -1,12 +1,6 @@
 (define (domain lunar-extended)
     (:requirements :strips :typing)
-
-
-    ; (:types
-    ;     parent_type
-    ;     child_type - parent_type
-
-    ; )
+    ; Domain definition for the extended lunar mission
     (:types
         lander
         rover
@@ -41,7 +35,7 @@
         (carrying_data ?r - rover ?d - data)
         (saved_data ?d - data ?l - lander)
 
-        ;samples
+        ;samples 
         (sample_at ?s - sample ?w - waypoint)
         (sample_capacity_free ?r - rover)
         (carrying_sample ?r - rover ?s - sample)
@@ -60,7 +54,8 @@
     ; -------------------------------
     ; Actions
     ; -------------------------------
-
+    
+    ;move description: move a rover from one waypoint to another
     (:action move
         :parameters (?r - rover ?from - waypoint ?to - waypoint)
         :precondition (and
@@ -73,6 +68,7 @@
                 (rover_at ?r ?to)
         )
     )
+    ;deploy description: deploy a rover from a lander to a waypoint austronaut assisted in docking bay
     (:action deploy
         :parameters (?r - rover ?l - lander ?w - waypoint ?a - astronaut ?db - docking_bay)
         :precondition (and 
@@ -89,6 +85,7 @@
             (rover_at ?r ?w)
         )
     )
+    ;capture_image description: capture an image with a rover
     (:action capture_image
         :parameters (?r - rover ?i - image ?w - waypoint)
         :precondition (and
@@ -102,6 +99,7 @@
             (carrying_data ?r ?i)
         )
     )
+    ;perform_scan description: perform a scan with a rover
     (:action perform_scan
         :parameters (?r - rover ?s - scan ?w - waypoint)
         :precondition (and 
@@ -115,6 +113,7 @@
             (carrying_data ?r ?s)
         )
     )
+    ;transmit_data description: transmit data from a rover to a lander austronaut assisted in control room
     (:action transmit_data
         :parameters (?r - rover ?l - lander ?d - data ?a - astronaut ?cr - control_room)
         :precondition (and
@@ -131,6 +130,7 @@
             (memory_free ?r)
         )
     )
+    ;collect_sample description: collect a sample with a rover
     (:action collect_sample
         :parameters (?r - rover ?s - sample ?w - waypoint)
         :precondition (and
@@ -145,6 +145,7 @@
             (carrying_sample ?r ?s)
         )
     )
+    ;store_sample description: store a sample from a rover to a lander austronaut assisted in docking bay
     (:action store_sample
         :parameters (?r - rover ?s - sample ?l - lander ?w - waypoint ?a - astronaut ?db - docking_bay)
         :precondition (and
@@ -165,6 +166,7 @@
             (sample_capacity_free ?r)
         )
     )
+    ;move_astronaut description: move an astronaut from one area to another
     (:action move_astronaut
         :parameters (?a - astronaut ?from - area ?to - area ?l - lander)
         :precondition (and 
